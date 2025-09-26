@@ -46,13 +46,13 @@ function fetchmovies() {
     
 }
 function showDetails(id) {
-  fetch(`https://www.omdbapi.com/?apikey=${apikey}&i=${id}`)
+  fetch(`https://www.omdbapi.com/?apikey=${apikey}&i=${id}&plot=full`)
     .then(res => res.json())
     .then(movie => {
       document.getElementById("movieTitle").innerText = movie.Title;
       document.getElementById("movieBody").innerHTML = `
 
-        <img src="${movie.Poster}" class="img-fluid mb-3">
+        <img src="${movie.Poster}" class="img-fluid mb-3 mx-auto d-block">
         <p><b>Year:</b> ${movie.Year}</p>
         <p><b>Genre:</b> ${movie.Genre}</p>
         <p><b>Plot:</b> ${movie.Plot}</p>
