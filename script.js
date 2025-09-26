@@ -1,3 +1,8 @@
+window.addEventListener("DOMContentLoaded", () => {
+   fetchnewreleases()// default search term
+});
+
+
 let movienameEle = document.getElementById("umoviename");
 let cardContainer = document.querySelector(".card-container");
 
@@ -65,3 +70,35 @@ function showDetails(id) {
       new bootstrap.Modal(document.getElementById('movieModal')).show();
     });
 }
+function fetchnewreleases(){
+   let newrelease= fetch(`http://www.omdbapi.com/?apikey=${apikey}&s=movie&y=2025&r=json`)
+console.log(newrelease)
+  newrelease.then(res => res.json())
+        .then((d) => {
+            console.log(d);
+         if (d.Response === "True") {
+                d.Search.forEach(movie => {
+                    let moviecard = document.createElement("div");
+                    moviecard.classList.add("moviecard");
+
+                    moviecard.innerHTML = `
+                      <div class="card bg-black text-white" onclick="showDetails('${movie.imdbID}')">
+                        <img src="${movie.Poster}" class="card-img" alt="No Poster">
+                        <div class="card-info">
+                        <h3 class="card-title">${movie.Title.length>14 ?movie.Title.slice(0,14)+"....":movie.Title}</h3>
+                        <p class="movie-year">Year: ${movie.Year}</p>
+                        </div>
+                        </div>
+                    `;
+
+                    cardContainer.appendChild(moviecard);
+                });
+            } else {
+                cardContainer.innerHTML = `<p>No movies found</p>`;
+            }
+        })
+        .catch(err => console.error("Error fetching data:", err));
+}
+        
+        
+
