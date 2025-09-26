@@ -71,7 +71,7 @@ function showDetails(id) {
     });
 }
 function fetchnewreleases(){
-   let newrelease= fetch(`http://www.omdbapi.com/?apikey=${apikey}&s=movie&y=2025&r=json`)
+   let newrelease= fetch(`https://www.omdbapi.com/?apikey=${apikey}&s=movie&y=2025&r=json`)
 console.log(newrelease)
   newrelease.then(res => res.json())
         .then((d) => {
