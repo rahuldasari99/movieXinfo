@@ -10,7 +10,7 @@ function fetchmovies() {
     if (moviename == "") {
         alert("please enter a movie name");
     } else {
-        let data = fetch(`http://www.omdbapi.com/?s=${moviename}&apikey=${apikey}`);
+        let data = fetch(`https://www.omdbapi.com/?s=${moviename}&apikey=${apikey}`);
         console.log(data);
 
         data.then(res => res.json())
