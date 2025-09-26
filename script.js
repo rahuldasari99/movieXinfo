@@ -54,8 +54,13 @@ function showDetails(id) {
 
         <img src="${movie.Poster}" class="img-fluid mb-3 mx-auto d-block">
         <p><b>Year:</b> ${movie.Year}</p>
+         <p><b>Director:</b> ${movie.Director}</p>
+           <p><b>Actors:</b> ${movie.Actors}</p>
+        
         <p><b>Genre:</b> ${movie.Genre}</p>
+        <p><b>Awards:</b> ${movie.Awards}</p>
         <p><b>Plot:</b> ${movie.Plot}</p>
+         <p><b>Ott:</b> ${movie.Website}</p>
       `;
       new bootstrap.Modal(document.getElementById('movieModal')).show();
     });
