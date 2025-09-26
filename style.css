@@ -35,3 +35,7 @@ body, h1, h2, h3, h4, h5, h6, p, a, button {
 .movie-year{
     font-size: 0.8rem;
 }
+::placeholder {
+  color: white !important;
+  opacity: 1; /* ensures it’s fully visible */
+}
